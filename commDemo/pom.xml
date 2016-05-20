@@ -41,11 +41,11 @@
                 <directory>src/main/resources</directory>
             </resource>
         </resources>
-        <testResources>
-            <testResource>
-                <!--<directory></directory>-->
-            </testResource>
-        </testResources>
+        <!--<testResources>-->
+            <!--<testResource>-->
+                <!--&lt;!&ndash;<directory></directory>&ndash;&gt;-->
+            <!--</testResource>-->
+        <!--</testResources>-->
 
         <plugins>
 
