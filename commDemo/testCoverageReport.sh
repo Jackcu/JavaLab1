@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-mvn clean cobertura:cobertura  -Dmaven.test.skip=true
+mvn clean cobertura:cobertura

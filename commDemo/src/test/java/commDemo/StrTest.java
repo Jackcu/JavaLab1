@@ -54,6 +54,13 @@ public class StrTest extends TestCase {
         assertEquals("123".length(),3);
     }
 
+    public void test_contains()
+    {
+
+        assertEquals(true,"22".contains("2"));
+
+    }
+
     public void test_split()
     {
 
@@ -116,13 +123,14 @@ public class StrTest extends TestCase {
 
         assertEquals(m.groupCount(),2);
 
-        while(m.find()){
-
-            logger.trace(m.group()+","+m.groupCount());//数字字母都有
-            logger.trace(m.group("num"));//只有数字
-            logger.trace(m.group(2));//只有字母
-
-        }
+//        while(m.find()){
+//
+//
+//            logger.trace(m.group()+","+m.groupCount());//数字字母都有
+//            logger.trace(m.group("num"));//只有数字
+//            logger.trace(m.group(2));//只有字母
+//
+//        }
 
     }
 
