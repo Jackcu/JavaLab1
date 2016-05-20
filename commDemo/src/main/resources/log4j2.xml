@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="OFF">
+    <Properties>
+        <Property name="baseDir">logs</Property>
+    </Properties>
+    <appenders>
+
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%file %M %L %t] %-5level %logger{36} -- %msg %xEx%n"/>
+        </Console>
+
+        <!--<RollingRandomAccessFile-->
+
+                <!--name="RollingRandomAccessFile"-->
+                <!--fileName="${baseDir}/app.log"-->
+                <!--filePattern="${baseDir}/app_-%d{MM-yyyy}_%i.log.gz"-->
+                <!--immediateFlush="true"-->
+        <!--&gt;-->
+
+            <!--&lt;!&ndash;<Filters>&ndash;&gt;-->
+                <!--&lt;!&ndash;<ThresholdFilter level="error"/>&ndash;&gt;-->
+            <!--&lt;!&ndash;</Filters>&ndash;&gt;-->
+
+            <!--<PatternLayout pattern="%d{HH:mm:ss.SSS} [%file %M %L %t] %-5level %logger{36} &#45;&#45; %msg %xEx%n"/>-->
+
+            <!--<Policies>-->
+
+                <!--<SizeBasedTriggeringPolicy size="5 MB" />-->
+
+            <!--</Policies>-->
+
+            <!--<DefaultRolloverStrategy max="20" >-->
+            <!--</DefaultRolloverStrategy>>-->
+
+        <!--</RollingRandomAccessFile>-->
+
+    </appenders>
+    <loggers>
+
+        <root level="trace">
+
+            <appender-ref  ref="Console"/>
+            <!--<appender-ref  ref="RollingRandomAccessFile"/>-->
+
+        </root>
+
+    </loggers>
+</configuration>
