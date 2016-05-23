@@ -27,6 +27,7 @@ public class StrTest extends TestCase {
     {
 
         super( testName );
+
         logger = LogManager.getLogger(testName);//T1.class.getName()
 
     }

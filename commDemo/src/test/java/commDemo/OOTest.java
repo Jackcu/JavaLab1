@@ -6,14 +6,13 @@ import junit.framework.TestSuite;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * Created by Jack on 5/20/2016.
  */
-public class FileIOTest extends TestCase {
+public class OOTest extends TestCase {
 
 
     public static Logger logger = null;
@@ -23,10 +22,11 @@ public class FileIOTest extends TestCase {
      *
      * @param testName name of the test case
      */
-    public FileIOTest(String testName )
+    public OOTest(String testName )
     {
 
         super( testName );
+
         logger = LogManager.getLogger(testName);//T1.class.getName()
 
     }
@@ -36,28 +36,22 @@ public class FileIOTest extends TestCase {
      */
     public static Test suite()
     {
-        return new TestSuite( FileIOTest.class );
+        return new TestSuite( OOTest.class );
     }
 
-    public void test_wt_rt() throws IOException {
+    public void test_t1()
+    {
 
-        //assertEquals("12312121".substring(2,3),"3");
+        OO.OO2 oo2 = new OO.OO2("test");
+        oo2.M1();
 
-        FileIO.wt("a.txt","1\r\n2\r\n中文");
+        OO.OO1 oo1=oo2;
+        oo1.M1();
 
-        assertEquals(
-                true
-                ,
-                FileIO.rt("a.txt").contains("中文")
-        );
+        oo2.SM1();
+        oo1.SM1();
 
-        FileIO.rm("a.txt");
-
-        assertEquals(
-                false
-                ,
-                FileIO.exists("a.txt")
-        );
+        oo2.color= OO.Color.RED;
 
     }
 

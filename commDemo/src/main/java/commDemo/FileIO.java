@@ -53,5 +53,28 @@ public class FileIO {
 
     }
 
+    public static void rm(String fileName) {
+
+        //获取文件
+        File file = new File(fileName);
+        if (!(file.isFile() && file.exists()))
+            return;
+
+        file.delete();
+
+    }
+
+    public static boolean exists(String fileName) {
+
+        //获取文件
+        File file = new File(fileName);
+
+        if (!file.isFile())
+            return false;
+
+        return file.exists();
+
+    }
+
 
 }

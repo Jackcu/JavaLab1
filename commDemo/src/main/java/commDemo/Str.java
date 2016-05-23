@@ -5,7 +5,11 @@ package commDemo;
  */
 public class Str {
 
-    /*去左空格*/
+    /**
+     * 去左空格
+     * @param str
+     * @return
+    */
     public static String leftTrim(String str) {
         if (str == null || str.equals("")) {
             return str;
@@ -14,7 +18,11 @@ public class Str {
         }
     }
 
-    /*去右空格*/
+    /**
+     * 去右空格
+     * @param str
+     * @return
+    */
     public static String rightTrim(String str) {
         if (str == null || str.equals("")) {
             return str;

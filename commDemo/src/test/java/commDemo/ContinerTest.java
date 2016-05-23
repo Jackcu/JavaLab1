@@ -6,14 +6,15 @@ import junit.framework.TestSuite;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
  * Created by Jack on 5/20/2016.
  */
-public class FileIOTest extends TestCase {
+public class ContinerTest extends TestCase {
 
 
     public static Logger logger = null;
@@ -23,10 +24,11 @@ public class FileIOTest extends TestCase {
      *
      * @param testName name of the test case
      */
-    public FileIOTest(String testName )
+    public ContinerTest(String testName )
     {
 
         super( testName );
+
         logger = LogManager.getLogger(testName);//T1.class.getName()
 
     }
@@ -36,29 +38,16 @@ public class FileIOTest extends TestCase {
      */
     public static Test suite()
     {
-        return new TestSuite( FileIOTest.class );
+        return new TestSuite( ContinerTest.class );
     }
 
-    public void test_wt_rt() throws IOException {
+    public void test_ArrayList()
+    {
 
-        //assertEquals("12312121".substring(2,3),"3");
+        List<String> list=new ArrayList<String>();
+        list.add("1");
 
-        FileIO.wt("a.txt","1\r\n2\r\n中文");
-
-        assertEquals(
-                true
-                ,
-                FileIO.rt("a.txt").contains("中文")
-        );
-
-        FileIO.rm("a.txt");
-
-        assertEquals(
-                false
-                ,
-                FileIO.exists("a.txt")
-        );
-
+        assertEquals("12312121".substring(2,3),"3");
     }
 
 }
