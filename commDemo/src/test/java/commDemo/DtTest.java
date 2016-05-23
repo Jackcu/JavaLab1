@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -25,28 +26,7 @@ public class DtTest extends TestCase {
     public DtTest(String testName ) throws Exception
     {
         super( testName );
-        System.out.println(new Date());
-        String cnWeekDay=Dt.GetCnWeekDay("2016-05-20");
-        String enWeekDay=Dt.GetEnWeekDay("2016-05-20");
-        int days=Dt.GetIntWeekDayT1(new Date());
-        String shortName= Dt.GetMonthByShortName("JAN");
-        int woY=  Dt.GetWeekOfYear(new Date());
-        int woM=  Dt.WeekOfMonth(new Date(),1);
 
-        Date d1=Dt.T4("20160606");
-        String t5t1Str= Dt.T5ToT1("18AUG");
-        String t5t12Str=Dt.T5ToT1_2("18AUG");
-
-        String t8t1Str=Dt.T8ToT1("20MAR 0910");
-        String t1Str=Dt.ToT1(new Date());
-        String t2Str=Dt.ToT2(new Date());
-        String t3Str=Dt.ToT3("0730");
-        String t5Str=Dt.ToT5("2014-06-06");
-        String t6Str=Dt.ToT6("2014-06-07");
-
-        String t7Str= Dt.ToT7("2008-01-01 07:00");
-        String test=Dt.ToT5(new Date());
-        String orgStr=Dt.ToJsOrgDateString(new Date());
         logger = LogManager.getLogger(testName);//T1.class.getName()
 
     }
@@ -59,19 +39,87 @@ public class DtTest extends TestCase {
         return new TestSuite( DtTest.class );
     }
 
-    public void test_wt_rt() throws IOException {
+    public static void test_GetCnWeekDayTest() throws Exception
+    {
+        assertEquals("星期五",Dt.GetCnWeekDay("2016-05-20"));
+    }
 
-        //assertEquals("12312121".substring(2,3),"3");
+    public static void test_GetEnWeekDayTest() throws Exception
+    {
+        assertEquals(Dt.GetEnWeekDay("2016-05-20"),"Fri");
+    }
 
-        FileIO.wt("a.txt","1\r\n2\r\n中文");
+    public static void test_GetIntWeekDayT1Test() throws Exception
+    {
+        assertEquals(1,Dt.GetIntWeekDayT1(new Date()));
+    }
 
-        assertEquals(
-                true
-                ,
-                FileIO.rt("a.txt").contains("中文")
-        );
+    public static void test_GetMonthByShortNameTest() throws Exception
+    {
+        assertEquals("01",Dt.GetMonthByShortName("JAN"));
+    }
 
+    public static void test_GetWeekOfYearTest() throws Exception
+    {
+        assertEquals(22,Dt.GetWeekOfYear(new Date()));
+    }
 
+    public static void test_T4Test() throws Exception
+    {
+        SimpleDateFormat format1=new SimpleDateFormat("yyyy-MM-dd");
+        assertEquals(format1.parse("2016-06-06"),Dt.T4("20160606"));
+    }
+
+    public static void test_WeekOfMonthTest() throws Exception
+    {
+        assertEquals(4,Dt.WeekOfMonth(new Date(),1));
+    }
+
+    public static void test_T5ToT1Test() throws Exception
+    {
+        assertEquals("2016-08-18",Dt.T5ToT1("18AUG"));
+    }
+
+    public static void test_T5ToT1_2Test() throws Exception
+    {
+        assertEquals("2016-08-18",Dt.T5ToT1_2("18AUG"));
+    }
+
+    public static void test_T8ToT1Test() throws Exception
+    {
+        assertEquals("2017-03-20 09:10",Dt.T8ToT1("20MAR 0910"));
+    }
+
+    public static void test_ToT1Test() throws Exception
+    {
+        SimpleDateFormat format1=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        assertEquals(format1.format(new Date()),Dt.ToT1(new Date()));
+    }
+
+    public static void test_ToT2Test() throws Exception
+    {
+        assertEquals("2016-05-23",Dt.ToT2(new Date()));
+    }
+
+    public static void test_ToT3Test() throws Exception
+    {
+        SimpleDateFormat format1=new SimpleDateFormat("yyyy-MM-dd");
+        assertEquals("07:30",Dt.ToT3("0730"));
+    }
+
+    public static void test_ToT5Test() throws Exception
+    {
+        assertEquals("06JUN",Dt.ToT5("2014-06-06"));
+    }
+
+    public static void test_ToT6Test() throws Exception
+    {
+        assertEquals("06JUN14",Dt.ToT6("2014-06-06"));
+    }
+
+    public static void test_ToT7Test() throws Exception
+    {
+        assertEquals("01JAN08 07:00",Dt.ToT7("2008-01-01 07:00"));
     }
 
 }
