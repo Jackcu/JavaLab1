@@ -30,6 +30,12 @@
             <artifactId>log4j-core</artifactId>
             <version>2.5</version>
         </dependency>
+        <dependency>
+            <groupId>net.sf.json-lib</groupId>
+            <artifactId>json-lib</artifactId>
+            <version>2.4</version>
+            <classifier>jdk15</classifier>
+        </dependency>
     </dependencies>
 
     <build>
@@ -41,6 +47,7 @@
                 <directory>src/main/resources</directory>
             </resource>
         </resources>
+
         <!--<testResources>-->
             <!--<testResource>-->
                 <!--&lt;!&ndash;<directory></directory>&ndash;&gt;-->
