@@ -35,7 +35,6 @@ public class OO {
             Object x=1;
         }
 
-
         public static void SM1(){
 
             logger.trace("OO1 SM1");
